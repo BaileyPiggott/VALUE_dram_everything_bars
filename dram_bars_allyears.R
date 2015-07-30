@@ -26,6 +26,7 @@ ggplot(
   aes(x = X, y = Mean, fill = define_colour)
   )+
   geom_bar(stat = "identity",position = "dodge", width = 0.5) + 
+  geom_errorbar(aes(ymax = Mean +Std..Error, ymin = Mean - Std..Error),width = 0.5, position = "dodge") + 
   coord_cartesian(ylim = c(0, 4)) +
   scale_x_discrete(labels = criteria) +
   theme(
@@ -42,8 +43,18 @@ ggplot(
        y = "Average Rubric Level"
        ) +
   scale_fill_manual(
-    values = c('#99e6a2', '#33cc44', '#1f7a29', '#99c4f6', '#3388ee', '#1f528f')
-    )
+    values = c('#99e6a2', '#33cc44', '#1f7a29', '#99c4f6', '#3388ee', '#1f528f'),
+    name = "Legend") +
+  annotate( # add labels for CLA mastery levels
+    "text", 
+    fontface = "bold", 
+    size = 5,
+    x = c(2.75, 6.75), 
+    y = 3.25, 
+    label = c( "Critical Thinking", "Written Communication"), 
+    colour = c("#33CC44", "#3388EE")
+    ) 
+
   
   
   
