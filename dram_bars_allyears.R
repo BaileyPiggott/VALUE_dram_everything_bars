@@ -23,14 +23,14 @@ dram$define_colour <- factor(dram$define_colour, levels = c("a", "d", "b","e","c
 
 # LEGEND LABELS -----------------------------------------------------------
 
-a_1 <- "First Year"
-a_2 <- paste0("n = ", dram[1, "N"])
+a_1 <- "First Year  "
+a_2 <- paste0("n = ", dram[1, "N"], "  ")
 
-b_1 <- "Second Year"
-b_2 <- paste0("n = ", dram[2, "N"])
+b_1 <- "Second Year  "
+b_2 <- paste0("n = ", dram[2, "N"], "  ")
 
-c_1 <- "Fourth Year"
-c_2 <- paste0("n = ", dram[3, "N"])
+c_1 <- "Fourth Year  "
+c_2 <- paste0("n = ", dram[3, "N"], "  ")
 
 
 legend_labels <- c(a_1, a_2, b_1, b_2, c_1, c_2)
@@ -57,7 +57,7 @@ ggplot(
     plot.title = element_text(size = 15),
     axis.title.y = element_text(size = 14),
     axis.text = element_text(size = 12), #size of x axis labels
-    legend.position = c(0.73,0.88), # position legend on graph in top right corner
+    legend.position = c(0.8,0.88), # position legend on graph in top right corner
     legend.background = element_rect(size=0.5, linetype="solid", colour ="grey"), #border around legend
     legend.key.height = unit(0.15, "inches"),
     legend.text.align = 0.5, # center text
