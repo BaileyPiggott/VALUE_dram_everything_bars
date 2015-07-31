@@ -5,6 +5,7 @@ library(ggplot2)
 library(magrittr)
 library(tidyr)
 library(dplyr)
+library(grid)
 
 # SET UP DATA FRAME -------------------------------------------------------
 
@@ -43,9 +44,8 @@ ggplot(
   )+
   geom_bar(stat = "identity",position = dodge, width = 0.5) + 
   geom_errorbar(
-    aes(ymax = Mean +Std..Error, ymin = Mean - Std..Error),
-    position = dodge,
-    width = 0.25
+    aes(ymax = Mean + Std..Error, ymin = Mean - Std..Error),
+    position = dodge, width = 0.25
     ) + 
   coord_cartesian(ylim = c(0, 4)) +
   scale_x_discrete(labels = criteria) +
@@ -57,11 +57,14 @@ ggplot(
     plot.title = element_text(size = 15),
     axis.title.y = element_text(size = 14),
     axis.text = element_text(size = 12), #size of x axis labels
-    legend.position = c(0.75,0.88) # position legend on graph in top right corner
+    legend.position = c(0.73,0.88), # position legend on graph in top right corner
+    legend.background = element_rect(size=0.5, linetype="solid", colour ="grey"), #border around legend
+    legend.key.height = unit(0.15, "inches"),
+    legend.text.align = 0.5, # center text
+    legend.title.align = 0.5 # center title
     ) +
   labs(title = "Summary of VALUE Learning Outcomes", 
-       x = "Learning Outcome", 
-       y = "Average Rubric Level"
+       x = "Learning Outcome", y = "Average Rubric Level"
        ) +
   scale_fill_manual(
     values = c('#99e6a2', '#99c4f6', '#33cc44', '#3388ee', '#1f7a29' ,'#1f528f'),
@@ -72,14 +75,8 @@ ggplot(
     "text", 
     fontface = "bold", 
     size = 5,
-    x = c(2.75, 6.75), 
-    y = 2.75, 
+    x = c(2.75, 6.75), y = 2.75, 
     label = c( "Critical Thinking", "Written Communication"), 
     colour = c("#33CC44", "#3388EE")
     ) +
   guides(fill=guide_legend(ncol=3))# multiple columns in legend
-
-  
-  
-  
-  
