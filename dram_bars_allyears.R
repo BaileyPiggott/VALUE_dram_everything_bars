@@ -20,13 +20,19 @@ colnames(define_colours) <- 'define_colour'
 dram <- bind_cols(dram, define_colours)
 
 # CREATE PLOT -------------------------------------------------------------
+dodge <- position_dodge(width=0.5) # because bars and error bars will be different widths
+
 
 ggplot(
   data = dram, 
   aes(x = X, y = Mean, fill = define_colour)
   )+
-  geom_bar(stat = "identity",position = "dodge", width = 0.5) + 
-  geom_errorbar(aes(ymax = Mean +Std..Error, ymin = Mean - Std..Error),width = 0.5, position = "dodge") + 
+  geom_bar(stat = "identity",position = dodge, width = 0.5) + 
+  geom_errorbar(
+    aes(ymax = Mean +Std..Error, ymin = Mean - Std..Error),
+    position = dodge,
+    width = 0.25
+    ) + 
   coord_cartesian(ylim = c(0, 4)) +
   scale_x_discrete(labels = criteria) +
   theme(
