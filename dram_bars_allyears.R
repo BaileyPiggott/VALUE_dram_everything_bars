@@ -67,7 +67,7 @@ ggplot(
        x = "Learning Outcome", y = "Average Rubric Level"
        ) +
   scale_fill_manual(
-    values = c('#99e6a2', '#99c4f6', '#33cc44', '#3388ee', '#1f7a29' ,'#1f528f'),
+    values = c('#99c4f6','#ffc499', '#3388ee','#ff8833' ,'#1f528f', '#cc5200'),
     name = "Legend",
     labels = legend_labels
     ) +
@@ -77,6 +77,6 @@ ggplot(
     size = 5,
     x = c(2.75, 6.75), y = 2.75, 
     label = c( "Critical Thinking", "Written Communication"), 
-    colour = c("#33CC44", "#3388EE")
+    colour = c("#3388EE", "#FF8833")
     ) +
   guides(fill=guide_legend(ncol=3))# multiple columns in legend
