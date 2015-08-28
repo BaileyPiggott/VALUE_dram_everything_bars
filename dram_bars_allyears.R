@@ -12,10 +12,10 @@ library(grid)
 dram = read.csv("VALUE_dram_means.csv")
 colnames(dram)[2] <- "year"
 dram$year <- as.factor(as.character(dram$year))# convert year column to factor
-criteria <- c("Explanation\nof Issues",  "Influence of\nContext and\nAssumptions", "Student's\nPosition", "Conclusions", "Context and\nPurpose for\nWriting", "Content\nDevelopment", "Genre and\nDisciplinary\nConventions",  "Syntax and\nMechanics")
+criteria <- c("Explanation\nof Issues", "Evidence",  "Influence of\nContext and\nAssumptions", "Student's\nPosition", "Conclusions", # Critical thinking
+              "Context and\nPurpose for\nWriting", "Content\nDevelopment", "Genre and\nDisciplinary\nConventions", "Sources and\nEvidence" ,"Syntax and\nMechanics") # written communication
 
-define_colours <- data.frame(c('a','b','c','a','b','c', 'a','b','c','a','b','c','d','e','f','d','e','f','d','e','f','d','e','f')) #a = lightgreen, b = green, c= darkgreen, d = lightblue, e=blue, f=darkblue
-colnames(define_colours) <- 'define_colour'
+define_colours <- data.frame(define_colour = c('a','b','c','a', 'b','c','a','b','c', 'a','b','c','a','b','c','d','e','f','d','e','f','d','e','f','d','e','f','d','e','f')) #a = lightgreen, b = green, c= darkgreen, d = lightblue, e=blue, f=darkblue
 
 dram <- bind_cols(dram, define_colours)
 
@@ -75,7 +75,7 @@ ggplot(
     "text", 
     fontface = "bold", 
     size = 5,
-    x = c(2.75, 6.75), y = 2.75, 
+    x = c(3, 8), y = 2.75, 
     label = c( "Critical Thinking", "Written Communication"), 
     colour = c("#3388EE", "#FF8833")
     ) +
